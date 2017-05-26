@@ -3,6 +3,12 @@
  */
 public class Satellite {
     private double lambda;
+    public static double radius = 42164.14; //km
+
+    Satellite(double lambda){
+        //TODO: add check for lambda
+        this.lambda = lambda;
+    }
 
     public double getLambda() {
         return lambda;
