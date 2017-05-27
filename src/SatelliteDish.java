@@ -11,7 +11,6 @@ public class SatelliteDish {
         double longitude = this.position.getLambda(), latitude = this.position.getBeta();
         double tanPsi = (Main.k * Math.sin(latitude))/Math.sqrt(1+Math.pow(Main.k, 2)*Math.pow(Math.cos(latitude),2)-2*Main.k*Math.cos(latitude)*Math.cos(sat.getLambda()-longitude));
         return Math.atan(tanPsi);
-        //return 0;
     }
 
     public double getAlpha() {

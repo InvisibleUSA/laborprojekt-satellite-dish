@@ -6,7 +6,9 @@ public class Satellite {
     public static double radius = 42164.14; //km
 
     Satellite(double lambda){
-        //TODO: add check for lambda
+        if ((lambda < Converter.degToRad(-180)) || (lambda > Converter.degToRad(180))) {
+            throw new IllegalArgumentException("satellite position: lambda out of bounds");
+        }
         this.lambda = lambda;
     }
 
