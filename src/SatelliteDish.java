@@ -7,10 +7,10 @@ public class SatelliteDish {
         this.position = position.clone();
 
     }
-    public double getPsi(Satellite sat) {
+    public double getDelta(Satellite sat) {
         double longitude = this.position.getLambda(), latitude = this.position.getBeta();
-        double tanPsi = (Main.k * Math.sin(latitude))/Math.sqrt(1+Math.pow(Main.k, 2)*Math.pow(Math.cos(latitude),2)-2*Main.k*Math.cos(latitude)*Math.cos(sat.getLambda()-longitude));
-        return Math.atan(tanPsi);
+        double tanDelta = (Main.k * Math.sin(latitude))/Math.sqrt(1+Math.pow(Main.k, 2)*Math.pow(Math.cos(latitude),2)-2*Main.k*Math.cos(latitude)*Math.cos(sat.getLambda()-longitude));
+        return Math.atan(tanDelta);
     }
 
     public double getAlpha(Satellite sat) {
@@ -19,7 +19,9 @@ public class SatelliteDish {
         return Math.atan(tanAlpha);
     }
 
-    public double getDelta() {
-        return 0;
+    public double getPsi(Satellite sat) {
+        double longitude = this.position.getLambda(), latitude = this.position.getBeta();
+        double tanPsi = Math.tan(sat.getLambda()-longitude)/Math.sin(latitude);
+        return Math.atan(tanPsi);
     }
 }
