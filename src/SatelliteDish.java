@@ -10,7 +10,7 @@ public class SatelliteDish {
     public double getDelta(Satellite sat) {
         double longitude = this.position.getLambda(), latitude = this.position.getBeta();
         double tanDelta = (Main.k * Math.sin(latitude))/Math.sqrt(1+Math.pow(Main.k, 2)*Math.pow(Math.cos(latitude),2)-2*Main.k*Math.cos(latitude)*Math.cos(sat.getLambda()-longitude));
-        return Math.atan(tanDelta);
+        return Math.abs(Math.atan(tanDelta));
     }
 
     public double getAlpha(Satellite sat) {
