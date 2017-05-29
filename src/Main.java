@@ -11,6 +11,8 @@ public class Main {
         Satellite panamsat = new Satellite(Converter.degToRad(-19.2));
         SatelliteDish dish = new SatelliteDish(new GeoCoord(Converter.degToRad(-9.2), Converter.degToRad(48.8)));
         double psi = dish.getPsi(panamsat);
+        double alpha = dish.getAlpha(panamsat);
         System.out.println("Psi is: " + Converter.radToDeg(psi));
+        System.out.println("Alpha is: " + Converter.radToDeg(alpha));
     }
 }

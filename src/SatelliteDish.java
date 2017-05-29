@@ -13,8 +13,10 @@ public class SatelliteDish {
         return Math.atan(tanPsi);
     }
 
-    public double getAlpha() {
-        return 0;
+    public double getAlpha(Satellite sat) {
+        double longitude = this.position.getLambda(), latitude = this.position.getBeta();
+        double tanAlpha = (Math.cos(latitude)*Math.cos(sat.getLambda()-longitude)-Main.k)/Math.sqrt((1-Math.pow(Math.cos(latitude),2)*Math.pow(Math.cos(sat.getLambda()-longitude),2)));
+        return Math.atan(tanAlpha);
     }
 
     public double getDelta() {
