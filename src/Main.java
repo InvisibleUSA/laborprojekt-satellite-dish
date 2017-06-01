@@ -11,7 +11,7 @@ public class Main {
     public static void main(String [] args){
         System.out.println("k ist: " + k);
         Satellite panamsat = new Satellite(Converter.degToRad(45));
-        SatelliteDish dish = new SatelliteDish(new GeoCoord(Converter.degToRad(-9.2), Converter.degToRad(48.8)));
+        SatelliteDish dish = new SatelliteDish(new GeoCoord(Converter.degToRad(-9.2), Converter.degToRad(-48.8)));
         double delta = dish.getDelta(panamsat);
         double alpha = dish.getAlpha(panamsat);
         double psi = dish.getPsi(panamsat);
