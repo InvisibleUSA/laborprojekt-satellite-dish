@@ -22,6 +22,8 @@ public class SatelliteDish {
     public double getPsi(Satellite sat) {
         double longitude = this.position.getLambda(), latitude = this.position.getBeta();
         double tanPsi = Math.tan(sat.getLambda()-longitude)/Math.sin(latitude);
-        return Math.atan(tanPsi);
+        double Psi  = Math.atan(tanPsi);
+        if (Psi < 0) Psi = 2 * Math.PI + Psi;
+        return Psi;
     }
 }
