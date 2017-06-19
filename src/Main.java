@@ -9,8 +9,21 @@ public class Main {
     public static double k = Main.earthRad / Satellite.radius;
 
     public static String calcElevationCurve(SatelliteDish dish) {
-
-        return null;
+        String result = "Psi\tAlpha\tDelta\n";
+        if (dish.isInNorthernHemisphere()){
+            for (double psi = Converter.degToRad(90); psi <= Converter.degToRad(270); psi += Converter.degToRad(5)) {
+                result += Converter.radToDeg(psi) + "°\t" + Converter.radToDeg(dish.getAlpha(psi)) + "°\t" + "?" + "°\n";
+            }
+        }
+        else if (dish.isInSouthernHemisphere()){
+            for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {
+                result += Converter.radToDeg(psi) + "°\t" + Converter.radToDeg(dish.getAlpha(psi)) + "°\t" + "?" + "°\n";
+            }
+        }
+        else {
+            result += "*\t90°\t0°\n";
+        }
+        return result;
     }
 
     public static void main(String [] args){
