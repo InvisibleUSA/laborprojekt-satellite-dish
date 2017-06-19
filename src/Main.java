@@ -8,6 +8,11 @@ public class Main {
     public static double earthRad = 6378.137; //km
     public static double k = Main.earthRad / Satellite.radius;
 
+    public static String calcElevationCurve(SatelliteDish dish) {
+
+        return null;
+    }
+
     public static void main(String [] args){
         System.out.println("k ist: " + k);
         Satellite panamsat = new Satellite(Converter.degToRad(Double.parseDouble(JOptionPane.showInputDialog("Satpos: ", -19.2))));
