@@ -37,6 +37,8 @@ public class Main {
         double alpha = dish.getAlpha(panamsat);
         double psi = dish.getPsi(panamsat);
         JOptionPane.showMessageDialog(null, "Delta is: " + Converter.radToDeg(delta) + "\n" + "Alpha is: " + Converter.radToDeg(alpha) + "\n" + "Psi is: " + Converter.radToDeg(psi));
+        String message = calcElevationCurve(dish);
+        JOptionPane.showMessageDialog(null, new JTextArea(message));
         System.out.println("Delta is: " + Converter.radToDeg(delta));
         System.out.println("Alpha is: " + Converter.radToDeg(alpha));
         System.out.println("Psi is: " + Converter.radToDeg(psi));
