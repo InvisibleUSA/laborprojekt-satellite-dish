@@ -19,7 +19,7 @@ public class Main {
             }
         }
         else if (dish.isInSouthernHemisphere()){
-            for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {
+            for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {//TODO check if 0-90 and 270-360 necessary
                 result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + "?" + "\n";
             }
         }

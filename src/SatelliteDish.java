@@ -32,7 +32,7 @@ public class SatelliteDish {
     public double getAlpha(double psi) {
         double cosPsi = Math.cos(psi);
         double tanBeta = Math.tan(position.getBeta());
-        double tanAlpha = -  cosPsi / tanBeta - Main.k * Math.sqrt(1 + (cosPsi / tanBeta) * (cosPsi / tanBeta));
+        double tanAlpha = cosPsi / tanBeta - Main.k * Math.sqrt(1 + (cosPsi / tanBeta) * (cosPsi / tanBeta));
         return Math.atan(tanAlpha);
     }
 
