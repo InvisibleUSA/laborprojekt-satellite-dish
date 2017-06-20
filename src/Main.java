@@ -9,18 +9,18 @@ public class Main {
     public static double k = Main.earthRad / Satellite.radius;
 
     public static String convertAngle(double angle) {
-        return Math.round(Converter.radToDeg(angle)) + "°";
+        return Math.round(Converter.radToDeg(angle*10000))/10000.0 + "°";
     }
     public static String calcElevationCurve(SatelliteDish dish) {
         String result = "Psi\tAlpha\tDelta\n";
         if (dish.isInNorthernHemisphere()){
             for (double psi = Converter.degToRad(90); psi <= Converter.degToRad(270); psi += Converter.degToRad(5)) {
-                result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + "?" + "\n";
+                result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + convertAngle(dish.getDelta(psi)) + "\n";
             }
         }
         else if (dish.isInSouthernHemisphere()){
             for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {//TODO check if 0-90 and 270-360 necessary
-                result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + "?" + "\n";
+                result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + convertAngle(dish.getDelta(psi)) + "\n";
             }
         }
         else {

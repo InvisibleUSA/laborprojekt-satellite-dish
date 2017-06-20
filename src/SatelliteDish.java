@@ -23,6 +23,14 @@ public class SatelliteDish {
         return Math.abs(Math.atan(tanDelta));
     }
 
+    public double getDelta(double Psi) {
+        double sinBeta = Math.sin(position.getBeta());
+        double cosBeta = Math.cos(position.getBeta());
+        double lambda = Math.atan(Math.tan(Psi) * sinBeta);
+        double tanDelta = Main.k * sinBeta / Math.sqrt(1-2*Main.k * cosBeta * Math.cos(lambda)+Math.pow(Main.k * cosBeta, 2));
+        return Math.abs(Math.atan(tanDelta));
+    }
+
     public double getAlpha(Satellite sat) {
         double longitude = this.position.getLambda(), latitude = this.position.getBeta();
         double tanAlpha = (Math.cos(latitude)*Math.cos(sat.getLambda()-longitude)-Main.k)/Math.sqrt((1-Math.pow(Math.cos(latitude),2)*Math.pow(Math.cos(sat.getLambda()-longitude),2)));
