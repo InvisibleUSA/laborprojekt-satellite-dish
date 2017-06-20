@@ -19,12 +19,13 @@ public class Main {
             }
         }
         else if (dish.isInSouthernHemisphere()){
-            for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {//TODO check if 0-90 and 270-360 necessary
+            for (double psi = Converter.degToRad(-90); psi <= Converter.degToRad(90); psi += Converter.degToRad(5)) {
                 result += convertAngle(psi) + "\t" + convertAngle(dish.getAlpha(psi)) + "\t" + convertAngle(dish.getDelta(psi)) + "\n";
             }
         }
         else {
-            result += "*\t90°\t0°\n";
+            result += convertAngle(Converter.degToRad(90)) + "\t*\t" + convertAngle(dish.getDelta(Converter.degToRad(90))) + "\n";
+            result += convertAngle(Converter.degToRad(270)) + "\t*\t" + convertAngle(dish.getDelta(Converter.degToRad(270))) + "\n";
         }
         return result;
     }
