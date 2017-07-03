@@ -49,9 +49,7 @@ public class SatelliteDish {
         double tanPsi = Math.tan(sat.getLambda()-longitude)/Math.sin(latitude);
         double Psi  = Math.atan(tanPsi);
         if (latitude >= 0) Psi = Math.PI + Psi;
-        if (Psi < 0) {
-            if (latitude < 0) Psi = 2 * Math.PI + Psi;
-        }
+        if (Psi < 0) if (latitude < 0) Psi = 2 * Math.PI + Psi;
         return Psi;
     }
 }
